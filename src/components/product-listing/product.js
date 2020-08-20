@@ -1,11 +1,42 @@
 import React from 'react';
 
-export const Product = () => {
+
+import Card from 'react-bootstrap/Card';
+import Carousel from 'react-bootstrap/Carousel';
+
+export const Product = ({product}) => {
 
     return(
         <div className="product">
+            {console.log(product)}
             
+            
+                <Card border="primary" style={{ flex: '1', width: '18rem'}}>
+                    <Carousel>
+                        <Carousel.Item>
+                            <Card.Img variant="top" src="holder.js/100px180" />
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <Card.Img variant="top" src="holder.js/100px180" />
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <Card.Img variant="top" src="holder.js/100px180" />
+                        </Carousel.Item>
+                    </Carousel>
+                    <Card.Body>
+                        <Card.Title>{product.name}</Card.Title>
+                        <Card.Text>
+                            {product.description}
+                        </Card.Text>
+                        <Card.Footer>
+                            <Card.Link variant="primary" href="#">Add to cart</Card.Link>
+                            <Card.Link variant="primary" href="#">Add to wishlist</Card.Link>
+                        </Card.Footer>
+                    </Card.Body>
+                </Card>
         </div>
 
+
+        
     );
 }
