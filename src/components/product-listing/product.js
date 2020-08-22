@@ -11,7 +11,7 @@ export const Product = ({product}) => {
             {console.log(product)}
             
             
-                <Card border="primary" style={{ flex: '1', width: '18rem'}}>
+                <Card border="primary" style={{ flex: '1', width: '30em', height: '20em'}}>
                     <Carousel>
                         <Carousel.Item>
                             <Card.Img variant="top" src="holder.js/100px180" />
@@ -28,11 +28,11 @@ export const Product = ({product}) => {
                         <Card.Text>
                             {product.description}
                         </Card.Text>
-                        <Card.Footer>
+                    </Card.Body>
+                    <Card.Footer>
                             <Card.Link variant="primary" href="#">Add to cart</Card.Link>
                             <Card.Link variant="primary" href="#">Add to wishlist</Card.Link>
                         </Card.Footer>
-                    </Card.Body>
                 </Card>
         </div>
 
