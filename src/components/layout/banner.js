@@ -3,13 +3,13 @@ import React from 'react';
 
 import {OperationsNavigation, ProductNavigation} from './navigation';
 
-function Banner(props) {
-
+function Banner({categoryList}) {
+    console.log(categoryList[0].kids)
     return (
         <div>
             
             <OperationsNavigation></OperationsNavigation>
-            <ProductNavigation></ProductNavigation>
+            <ProductNavigation generalCategory={categoryList[0]} ></ProductNavigation>
         </div>
     );
 }

@@ -49,8 +49,8 @@ function OperationsNavigation() {
     );  
 }
 
-function ProductNavigation(props) {
-    
+function ProductNavigation({generalCategory}) {
+    console.log(generalCategory)
 
     return (
         <div>
@@ -69,28 +69,45 @@ function ProductNavigation(props) {
                             </div>
                             <div>
                                 <NavItem>
-                                    <NavDropdown.Item href="#action/3.1">Jeans</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2">Shoes</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.3">Tees</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.4">Hoodie</NavDropdown.Item>
+                                    {generalCategory.men.map((category)=> (<NavDropdown.Item href="#action/3.1">{category}</NavDropdown.Item>))}
                                 </NavItem>
                             </div>
                         </Container>
                     </NavDropdown>
                     <NavDropdown title="Women">
                         <Container>
-                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                            <div>
+                                <NavItem>
+                                    <NavLink>Features</NavLink>
+                                    <Dropdown.Divider/>
+                                    <NavDropdown.Item>New Arival</NavDropdown.Item>
+                                    <NavDropdown.Item>Sale</NavDropdown.Item>
+                                    <NavDropdown.Item>Seasonal</NavDropdown.Item>
+                                </NavItem>
+                            </div>
+                            <div>
+                                <NavItem>
+                                    {generalCategory.women.map((category)=> (<NavDropdown.Item href="#action/3.1">{category}</NavDropdown.Item>))}
+                                </NavItem>
+                            </div>
                         </Container>
                     </NavDropdown>
                     <NavDropdown title="Kids">
                         <Container>
-                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                            <div>
+                                <NavItem>
+                                    <NavLink>Features</NavLink>
+                                    <Dropdown.Divider/>
+                                    <NavDropdown.Item>New Arival</NavDropdown.Item>
+                                    <NavDropdown.Item>Sale</NavDropdown.Item>
+                                    <NavDropdown.Item>Seasonal</NavDropdown.Item>
+                                </NavItem>
+                            </div>
+                            <div>
+                                <NavItem>
+                                    {generalCategory.kids.map((category)=> (<NavDropdown.Item href="#action/3.1">{category}</NavDropdown.Item>))}
+                                </NavItem>
+                            </div>
                         </Container>
                     </NavDropdown>
                     <NavDropdown title="Accessories">
