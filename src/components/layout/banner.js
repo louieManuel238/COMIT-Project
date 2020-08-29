@@ -1,15 +1,16 @@
 import React from 'react';
 
 import Logo from './logo';
-import Navigation from './navigation';
+import {OperationsNavigation, ProductNavigation} from './navigation';
 
 function Banner(props) {
 
     return (
         <div>
-            <Navigation></Navigation>
+            
+            <OperationsNavigation></OperationsNavigation>
         </div>
     );
 }
 
-export default Banner;
+export default Banner

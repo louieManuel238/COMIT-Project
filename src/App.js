@@ -31,7 +31,6 @@ function App() {
     const [products, setProduct] = useState(items);
 
 
-
   return (
     <div className="App">
       <Banner></Banner>
