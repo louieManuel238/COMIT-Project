@@ -9,7 +9,8 @@ function App() {
     {
         id: 1,
         name: "NDR1",
-        category: "Shoes",
+        category: ["shoes","women"],
+        sizes: [],
         description: "Addidas NDR original stlye",
         price: 199,
         images: ["./product/img/shoes/1-1.jpg",
@@ -19,7 +20,8 @@ function App() {
     {
         id: 2,
         name: "Prime Blue",
-        category: "Shoes",
+        category: ["shoes","men"],
+        sizes: [],
         description: "Addidas primbe blue original stlye",
         price: 199,
         images: ["./product/img/shoes/2-1.jpg",
@@ -27,7 +29,11 @@ function App() {
         "./product/img/shoes/2-3.jpg"]
     }
     ]
+    const arr = [];
+      items.map((item) => [...arr, item.category]);
+    console.log(arr);
 
+    
     const [products, setProduct] = useState(items);
 
 

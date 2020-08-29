@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Logo from './logo';
+
 import {OperationsNavigation, ProductNavigation} from './navigation';
 
 function Banner(props) {
@@ -9,6 +9,7 @@ function Banner(props) {
         <div>
             
             <OperationsNavigation></OperationsNavigation>
+            <ProductNavigation></ProductNavigation>
         </div>
     );
 }

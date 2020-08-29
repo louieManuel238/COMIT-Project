@@ -8,7 +8,6 @@ export const Product = ({product}) => {
 
     return(
         <div className="product">
-            {console.log(product)}
             
             
                 <Card border="primary" style={{ flex: '1', width: '30em', height: '20em'}}>

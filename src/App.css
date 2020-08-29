@@ -45,3 +45,28 @@
     transform: rotate(360deg);
   }
 }
+
+.dropdown{
+  position: static !important;
+}
+.dropdown-menu {
+  width: 100vw;
+  height: 30vh;
+  margin-left: 0;
+  margin-top: 0;
+
+}
+.dropdown-menu > .container{
+  display: flex !important;
+  padding: 0;
+  width: 100%;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+.dropdown-menu > .container div:last-child{
+  flex: .7;
+}
+
+.dropdown-menu > .container div:first-child{
+  margin-left: 5em;
+}

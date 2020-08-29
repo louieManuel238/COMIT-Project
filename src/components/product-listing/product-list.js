@@ -8,7 +8,6 @@ export default function ProductList({items}) {
     return(
         
         <div>
-            {console.log(items)}
             <CardDeck style={{display: 'flex', flexDirection: 'row'}}>
                 {items.map(item => (
                     <div key={item.id}> <Product product={item}/> </div>
