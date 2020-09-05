@@ -25,7 +25,7 @@ function OperationsNavigation() {
                 <NavBar.Collapse id="basic-navbar-nav">
                     <Nav className="justify-content-end" style={{ width: "100%" }}>
                         <Nav.Item>
-                            <Nav.Link href="#home"><RiAccountCircleLine size={30}/></Nav.Link>
+                            <Nav.Link href="#home"><RiAccountCircleLine size={30}/></Nav.Link>  
                             <Nav.Link href="#home">Account  </Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
@@ -69,7 +69,7 @@ function ProductNavigation({generalCategory}) {
                             </div>
                             <div>
                                 <NavItem>
-                                    {generalCategory.men.map((category)=> (<NavDropdown.Item href="#action/3.1">{category}</NavDropdown.Item>))}
+                                    {generalCategory.men.map((category)=> (<NavDropdown.Item href="#action/3.1" style={{backgroundColor:"white", color: "black"}}>{category}</NavDropdown.Item>))}
                                 </NavItem>
                             </div>
                         </Container>
@@ -87,7 +87,7 @@ function ProductNavigation({generalCategory}) {
                             </div>
                             <div>
                                 <NavItem>
-                                    {generalCategory.women.map((category)=> (<NavDropdown.Item href="#action/3.1">{category}</NavDropdown.Item>))}
+                                    {generalCategory.women.map((category)=> (<NavDropdown.Item href="#action/3.1" style={{backgroundColor:"white", color: "black"}}>{category}</NavDropdown.Item>))}
                                 </NavItem>
                             </div>
                         </Container>
@@ -105,7 +105,7 @@ function ProductNavigation({generalCategory}) {
                             </div>
                             <div>
                                 <NavItem>
-                                    {generalCategory.kids.map((category)=> (<NavDropdown.Item href="#action/3.1">{category}</NavDropdown.Item>))}
+                                    {generalCategory.kids.map((category)=> (<NavDropdown.Item href="#action/3.1" style={{backgroundColor:"white", color: "black"}}>{category}</NavDropdown.Item>))}
                                 </NavItem>
                             </div>
                         </Container>
