@@ -26,10 +26,10 @@ export const items = [
         "./product/img/shoes/2-3.jpg"]
     }
     ]
-   export const categories = [
+   export const categories = 
       {
         "women":["shoes","jeans","joggers","leggings","tshirt","dress",],
         "men":["shoes","jeans","tshirt","jackets"],
         "kids":["shoes","pants"]
       }
-    ] 
+    

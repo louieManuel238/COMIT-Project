@@ -1,4 +1,5 @@
 import React from 'react';
+import {LinkContainer} from 'react-router-bootstrap';
 
 import Logo from './logo';
 
@@ -19,7 +20,7 @@ function OperationsNavigation() {
     return (
         <div>
             <NavBar  expand="lg" style={{}}>
-                <NavBar.Brand><Logo/></NavBar.Brand>
+                <NavBar.Brand href="/"><Logo/></NavBar.Brand>
                 <NavBar.Toggle aria-controls="basic-navbar-nav" />
 
                 <NavBar.Collapse id="basic-navbar-nav">
@@ -50,7 +51,7 @@ function OperationsNavigation() {
 }
 
 function ProductNavigation({generalCategory}) {
-    console.log(generalCategory)
+    // console.log(generalCategory)
 
     return (
         <div>
@@ -69,7 +70,11 @@ function ProductNavigation({generalCategory}) {
                             </div>
                             <div>
                                 <NavItem>
-                                    {generalCategory.men.map((category)=> (<NavDropdown.Item href="#action/3.1" style={{backgroundColor:"white", color: "black"}}>{category}</NavDropdown.Item>))}
+                                    {generalCategory.men.map((category)=> (
+                                        <LinkContainer to={"/men/"+category} style={{backgroundColor:"white", color: "black"}}>
+                                            <NavDropdown.Item>{category}</NavDropdown.Item>
+                                        </LinkContainer>
+                                    ))}
                                 </NavItem>
                             </div>
                         </Container>
@@ -87,7 +92,7 @@ function ProductNavigation({generalCategory}) {
                             </div>
                             <div>
                                 <NavItem>
-                                    {generalCategory.women.map((category)=> (<NavDropdown.Item href="#action/3.1" style={{backgroundColor:"white", color: "black"}}>{category}</NavDropdown.Item>))}
+                                    {generalCategory.women.map((category)=> (<NavDropdown.Item href={"#women/"+category} style={{backgroundColor:"white", color: "black"}}>{category}</NavDropdown.Item>))}
                                 </NavItem>
                             </div>
                         </Container>
@@ -105,7 +110,7 @@ function ProductNavigation({generalCategory}) {
                             </div>
                             <div>
                                 <NavItem>
-                                    {generalCategory.kids.map((category)=> (<NavDropdown.Item href="#action/3.1" style={{backgroundColor:"white", color: "black"}}>{category}</NavDropdown.Item>))}
+                                    {generalCategory.kids.map((category)=> (<NavDropdown.Item href={"#kids/"+category} style={{backgroundColor:"white", color: "black"}}>{category}</NavDropdown.Item>))}
                                 </NavItem>
                             </div>
                         </Container>
