@@ -70,8 +70,8 @@ function ProductNavigation({generalCategory}) {
                             </div>
                             <div>
                                 <NavItem>
-                                    {generalCategory.men.map((category)=> (
-                                        <LinkContainer to={"/men/"+category} style={{backgroundColor:"white", color: "black"}}>
+                                    {generalCategory.men.map((category, index)=> (
+                                        <LinkContainer to={"/men/"+category} style={{backgroundColor:"white", color: "black"}} key={index}>
                                             <NavDropdown.Item>{category}</NavDropdown.Item>
                                         </LinkContainer>
                                     ))}
@@ -92,7 +92,11 @@ function ProductNavigation({generalCategory}) {
                             </div>
                             <div>
                                 <NavItem>
-                                    {generalCategory.women.map((category)=> (<NavDropdown.Item href={"#women/"+category} style={{backgroundColor:"white", color: "black"}}>{category}</NavDropdown.Item>))}
+                                    {generalCategory.women.map((category, index)=> (
+                                         <LinkContainer to={"/women/"+category} style={{backgroundColor:"white", color: "black"}} key={index}>
+                                            <NavDropdown.Item>{category}</NavDropdown.Item>
+                                        </LinkContainer>
+                                    ))}
                                 </NavItem>
                             </div>
                         </Container>
@@ -110,7 +114,11 @@ function ProductNavigation({generalCategory}) {
                             </div>
                             <div>
                                 <NavItem>
-                                    {generalCategory.kids.map((category)=> (<NavDropdown.Item href={"#kids/"+category} style={{backgroundColor:"white", color: "black"}}>{category}</NavDropdown.Item>))}
+                                    {generalCategory.kids.map((category, index)=> (
+                                        <LinkContainer to={"/kids/"+category} style={{backgroundColor:"white", color: "black"}} key={index}>
+                                            <NavDropdown.Item>{category}</NavDropdown.Item>
+                                        </LinkContainer>
+                                    ))}
                                 </NavItem>
                             </div>
                         </Container>

@@ -15,20 +15,26 @@ function App() {
 
     const [products] = useState(items);
     const [categoryList] = useState(categories);
+
+    // const getProductsByCategory = (cat) => {
+    //   products.filter((product) => {
+    //     product.category.includes(cat)
+    //   })
+    // }
   return (
     <div className="App">
+        {/* {getProductsByCategory()} */}
       <Router>
         <Banner categoryList={categoryList}></Banner>
-        
           <Switch>
-            {console.log(categoryList)}
-            {categoryList.men.map(
-              (category) => (
-                  <Route path={"/men/"+category}>
-                    <ProductList items={products}/>
-                  </Route>
-                )
-            )}
+            {
+              Object.entries(categoryList).map(([mainCategory, value]) => {
+                return value.map((category, index) => (
+                    <Route path={"/"+mainCategory+"/"+category} key={index}>
+                          <ProductList items={products}/>
+                    </Route>))
+                })
+            }
             <Route path="/">
               <Promotional/>
             </Route>
