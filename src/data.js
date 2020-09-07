@@ -42,6 +42,26 @@ export const items = [
               {url:"../../images/products/tshirt/purple-t-shirt.jpg", color: "purple"},
               {url:"../../images/products/tshirt/red-t-shirt.jpg", color: "red"}]
     },
+    {
+      id: 4,
+      name: "Striped T-Shirt",
+      category: ["tshirt", "women"],
+      sizes: ["xs", "s", "m"],
+      colors: ["white"],
+      description: "short sleeve cotton jersey t-shirt striped in navy and white. Crewneck collar. ",
+      price: 160.00,
+      images: []
+    },
+    {
+      id: 5,
+      name: "Striped Sleeveless T-Shirt",
+      category: ["tshirt", "women"],
+      sizes: ["xs", "s", "m"],
+      colors: ["white"],
+      description: "sleeveless cotton t-shirt striped in navy and white. Crewneck collar. ",
+      price: 180.00,
+      images: []
+    }
     ]
 export const categories = 
   {

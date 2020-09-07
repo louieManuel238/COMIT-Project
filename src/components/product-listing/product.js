@@ -36,11 +36,14 @@ export const Product = ({product}) => {
                         </Card.Text>
                         <Card.Text>
                             {product.colors.map((color, index) => {return (
-                                <span>
+                                <span  key={index}>
                                     <label for={color}> {color} </label>
-                                    <input key={index} type="radio" name="color" value={color}/>
+                                    <input type="radio" name="color" value={color}/>
                                 </span>
                             )})}
+                        </Card.Text>
+                        <Card.Text>
+                            {product.price}
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
