@@ -16,22 +16,25 @@ function App() {
     const [products] = useState(items);
     const [categoryList] = useState(categories);
 
-    // const getProductsByCategory = (cat) => {
-    //   products.filter((product) => {
-    //     product.category.includes(cat)
-    //   })
-    // }
+    const getProductsByCategory = (filterCriteria) => {
+      return products.filter((product) => (
+        // product.category.includes(filterCriteria.map(x=>x))
+        filterCriteria.every(x => (product.category.includes(x)))
+      ))
+    }
+
   return (
     <div className="App">
-        {/* {getProductsByCategory()} */}
+        {console.log(getProductsByCategory(["kids","men"]))}
       <Router>
         <Banner categoryList={categoryList}></Banner>
           <Switch>
             {
+              //MAIN CATEGORIES ARE "MEN, WOMEN, KIDS, ..."
               Object.entries(categoryList).map(([mainCategory, value]) => {
                 return value.map((category, index) => (
                     <Route path={"/"+mainCategory+"/"+category} key={index}>
-                          <ProductList items={products}/>
+                          <ProductList items={getProductsByCategory([mainCategory,category])}/>
                     </Route>))
                 })
             }
