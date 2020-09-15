@@ -1,0 +1,20 @@
+{
+    "women": [
+        "shoes",
+        "jeans",
+        "joggers",
+        "leggings",
+        "tshirt",
+        "dress"
+    ],
+    "men": [
+        "shoes",
+        "jeans",
+        "tshirt",
+        "jackets"
+    ],
+    "kids": [
+        "shoes",
+        "pants"
+    ]
+}

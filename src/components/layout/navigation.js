@@ -16,7 +16,7 @@ import {BiHeart} from 'react-icons/bi';
 import {RiAccountCircleLine} from 'react-icons/ri';
 import { Dropdown, NavItem, NavLink } from 'react-bootstrap';
 
-function OperationsNavigation() {
+function OperationsNavigation(props) {
     return (
         <div>
             <NavBar  expand="lg" style={{}}>
@@ -33,7 +33,7 @@ function OperationsNavigation() {
                             <Nav.Link href="#home"><BiHeart size={30}/></Nav.Link>
                             <Nav.Link href="#link">Wishlist </Nav.Link>
                         </Nav.Item>
-                        <Nav.Item>
+                        <Nav.Item onClick={props.handleShow}>
                             <Nav.Link href="#home"><GiShoppingCart size={30}/></Nav.Link>
                             <Nav.Link href="#home">Checkout </Nav.Link>
                         </Nav.Item>

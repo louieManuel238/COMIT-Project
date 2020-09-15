@@ -5,7 +5,7 @@ function Sort(props) {
     return (
         <div>
             <b>Sort By</b>
-            <input type="radio" 
+            <input type="radio" />
         </div>
     );
 }

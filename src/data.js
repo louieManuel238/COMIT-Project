@@ -35,12 +35,12 @@ export const items = [
       colors: ["blue","green","grey","cobalt","purple","red"],
       description: "Soft, stretchy, and naturally breathable, it’s your favourite tee",
       price: 54.00,
-      images:[{url: "../../images/products/tshirt/blue-t-shirt.jpg", color: "blue"}, 
-              {url:"../../images/products/tshirt/cobalt-blue-t-shirt.jpg", color: "cobalt"},
-              {url:"../../images/products/tshirt/green-t-shirt.jpg", color: "green"},
-              {url:"../../images/products/tshirt/grey-t-shirt.jpg", color: "grey"},
-              {url:"../../images/products/tshirt/purple-t-shirt.jpg", color: "purple"},
-              {url:"../../images/products/tshirt/red-t-shirt.jpg", color: "red"}]
+      images:[{url: "/images/products/tshirt/blue-t-shirt.jpg", color: "blue"}, 
+              {url:"/images/products/tshirt/cobalt-blue-t-shirt.jpg", color: "cobalt"},
+              {url:"/images/products/tshirt/green-t-shirt.jpg", color: "green"},
+              {url:"/images/products/tshirt/grey-t-shirt.jpg", color: "grey"},
+              {url:"/images/products/tshirt/purple-t-shirt.jpg", color: "purple"},
+              {url:"/images/products/tshirt/red-t-shirt.jpg", color: "red"}]
     },
     {
       id: 4,
@@ -50,7 +50,7 @@ export const items = [
       colors: ["white"],
       description: "short sleeve cotton jersey t-shirt striped in navy and white. Crewneck collar. ",
       price: 160.00,
-      images: []
+      images: [{url:""}]
     },
     {
       id: 5,
@@ -60,7 +60,7 @@ export const items = [
       colors: ["white"],
       description: "sleeveless cotton t-shirt striped in navy and white. Crewneck collar. ",
       price: 180.00,
-      images: []
+      images: [{url:""}]
     }
     ]
 export const categories = 

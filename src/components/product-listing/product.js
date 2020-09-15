@@ -1,27 +1,30 @@
 import React from 'react';
- import blue from '../../images/products/tshirt/blue-t-shirt.jpg';
-
 
 import Card from 'react-bootstrap/Card';
 import Carousel from 'react-bootstrap/Carousel';
+import Button from 'react-bootstrap/Button';
 
-export const Product = ({product}) => {
+import {RiAddCircleLine} from 'react-icons/ri';
+
+export const Product = ({product,handleClick}) => {
     return(
         <div className="product">
             
-                <Card border="primary" style={{ flex: '1', width: '30em', height: '20em'}}>
-                    <Carousel>
+                <Card border="primary" style={{ flex: '1', width: '30em', height:'580px', position: 'relative'}}>
+
+
+                    <Card.Body>
+                    <Carousel interval={null}>
                         {
-                            product.images.map((url, index) => (
+                            product.images.map((image, index) => (
                              (<Carousel.Item key={index}>
-                                    <Card.Img variant="top" src={url} />
+                                    <Card.Img variant="top" src={process.env.PUBLIC_URL + image.url} key={index} />
                                     {/* {console.log(url)} */}
                                 </Carousel.Item>)
                             ))
                             
                         } 
                     </Carousel>
-                    <Card.Body>
                         <Card.Title>{product.name}</Card.Title>
                         <Card.Text>
                             {product.description}
@@ -29,16 +32,18 @@ export const Product = ({product}) => {
                         <Card.Text>
                             {product.sizes.map((size, index) => {return (
                                 <span>
-                                    <label for={size}> {size} </label>
-                                    <input key={index} type="radio" name="size" value={size}/>
+                                    <label>{size} 
+                                        <input key={index} type="radio" name="size" value={size}/>
+                                    </label>
                                 </span>
                             )})}
                         </Card.Text>
                         <Card.Text>
                             {product.colors.map((color, index) => {return (
                                 <span  key={index}>
-                                    <label for={color}> {color} </label>
+                                    <label> {color}
                                     <input type="radio" name="color" value={color}/>
+                                    </label>
                                 </span>
                             )})}
                         </Card.Text>
@@ -47,7 +52,7 @@ export const Product = ({product}) => {
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                            <Card.Link variant="primary" href="#">Add to cart</Card.Link>
+                            <Card.Link variant="primary" href="#" onClick={()=>handleClick(product.id)}><RiAddCircleLine size={30}/></Card.Link>
                             <Card.Link variant="primary" href="#">Add to wishlist</Card.Link>
                         </Card.Footer>
                 </Card>

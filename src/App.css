@@ -101,3 +101,7 @@ a:active, a:visited, a:link{
   padding: 35px, 50px;
   background-color: #3f3a3e;
 }
+
+.product{
+  margin: 15px 5px 5px 10px;
+}
