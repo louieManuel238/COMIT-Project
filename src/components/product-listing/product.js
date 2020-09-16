@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import Card from 'react-bootstrap/Card';
 import Carousel from 'react-bootstrap/Carousel';
@@ -6,7 +6,12 @@ import Button from 'react-bootstrap/Button';
 
 import {RiAddCircleLine} from 'react-icons/ri';
 
-export const Product = ({product,handleClick}) => {
+export const Product = ({product,addToCart}) => {
+    
+    const [colorSelected, setColorSelected] = useState(product.colors[0])
+    const [sizeSelected, setSizeSelected] = useState(product.sizes[0])
+
+
     return(
         <div className="product">
             
@@ -32,8 +37,11 @@ export const Product = ({product,handleClick}) => {
                         <Card.Text>
                             {product.sizes.map((size, index) => {return (
                                 <span>
-                                    <label>{size} 
-                                        <input key={index} type="radio" name="size" value={size}/>
+                                    <label>
+                                        {size} 
+                                        <input key={index} type="radio" name={product.id +"size"} value={size} 
+                                            onChange={()=>setSizeSelected(size)}
+                                            defaultChecked={index === 0}/>
                                     </label>
                                 </span>
                             )})}
@@ -42,7 +50,10 @@ export const Product = ({product,handleClick}) => {
                             {product.colors.map((color, index) => {return (
                                 <span  key={index}>
                                     <label> {color}
-                                    <input type="radio" name="color" value={color}/>
+                                    <input type="radio" name={product.id+"color"} value={color} 
+                                        onChange={()=>setColorSelected(color)}
+                                        defaultChecked={index === 0}
+                                     />
                                     </label>
                                 </span>
                             )})}
@@ -52,7 +63,7 @@ export const Product = ({product,handleClick}) => {
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                            <Card.Link variant="primary" href="#" onClick={()=>handleClick(product.id)}><RiAddCircleLine size={30}/></Card.Link>
+                            <Card.Link variant="primary" href="#" onClick={()=>addToCart({...product,colors: colorSelected, sizes: sizeSelected})}><RiAddCircleLine size={30}/></Card.Link>
                             <Card.Link variant="primary" href="#">Add to wishlist</Card.Link>
                         </Card.Footer>
                 </Card>

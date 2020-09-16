@@ -18,7 +18,7 @@ export default function ProductList(props) {
             
             <CardDeck style={{display: 'flex', flexDirection: 'row'}}>
                 {props.items.map((item) => (
-                    <div key={item.id}> <Product product={item} key={item.id} handleClick={props.addToCart}/> </div>
+                    <div key={item.id}> <Product product={item} key={item.id} addToCart={props.addToCart}/> </div>
                 ))}
             </CardDeck>
         </div>

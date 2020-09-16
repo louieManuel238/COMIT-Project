@@ -28,39 +28,36 @@ function App() {
       return filteredProduct;
     }
 
-    const findProductFromLocalStorage =(productId)=>{
-      return products.find((product) => product.id === parseInt(localStorage.key(productId),10))
-  }
 
   useEffect(() => {
       //jjust need to show the items access to localstorage and find item in json and save as object add to obarr(sopping bag)
-      for (let i = 0; i < localStorage.length; i++){
-          const item = products.find((product) => product.id === parseInt(localStorage.key(i),10))
-          setCartItems([...cartItems, {...item, quantity: localStorage.getItem(parseInt(localStorage.key(i),10))}])
-      }
+      // for (let i = 0; i < localStorage.length; i++){
+      //     const item = products.find((product) => product.id === parseInt(localStorage.key(i),10))
+      //     setCartItems([...cartItems, {...item, quantity: localStorage.getItem(parseInt(localStorage.key(i),10))}])
+      // }
   },[])
 
+  useEffect(()=>{localStorage.setItem("cart", JSON.stringify(cartItems))},[cartItems])
 
-    const addCartItems = (id) => {
-      const exisitingCartItem = cartItems.find((item) => item.id === id)
-      
-      if(exisitingCartItem != undefined) {
-        const newCart = cartItems.filter((item) => item.id !== id);
-         setCartItems([...newCart, {...exisitingCartItem, quantity: exisitingCartItem.quantity+1}])
-         localStorage.setItem(id, parseInt(localStorage.getItem(id),10)+1);
-        
+    const addCartItems = (product) => {
+      const exisitInCartItem = cartItems.find((item) => item.id === product.id && item.sizes === product.sizes && item.colors === product.colors)
+      console.log(product.sizes)
+      if(exisitInCartItem != undefined) {
+        const newCart = cartItems.filter((item) => item.id === product.id && item.sizes === product.sizes && item.colors === product.colors);
+         setCartItems([...newCart, {...exisitInCartItem, quantity: exisitInCartItem.quantity+1}])
       }else{
-        const item = products.find((product) => product.id === id)
-        setCartItems([...cartItems, {...item, quantity: 1}])
-        localStorage.setItem(id,1)
+        // const item = products.find((item) => item.id === product.id)
+
+        setCartItems([...cartItems, {...product, quantity: 1}])
       }
+
     }
     
   return (
     <div className="App">
       <Router>
         {/* {console.log(sortProducts(["price", "asc"]))} */}
-        {console.log(cartItems)}
+        
         
         <Banner 
           categoryList={categoryList}

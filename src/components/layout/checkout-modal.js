@@ -23,20 +23,14 @@ function CheckoutModal(props) {
             </Modal.Header>
             <Modal.Body>
                 <Container>
-                    <Row>
-                        <Col xs={12} md={8}>
-                            <ListGroup  variant="flush">
-                                {props.items.map( (item) => 
-                                    <ListGroup.Item>
-                                        <CartItems item={item}/>
-                                    </ListGroup.Item>
-                                )}
-                            </ListGroup>
-                        </Col>
-                        <Col xs={6} md={4}>
-                        .col-xs-6 .col-md-4
-                        </Col>
-                    </Row>
+                    <ListGroup  variant="flush">
+                        {props.items.map( (item) => 
+                            <ListGroup.Item>
+                                <CartItems item={item}/>
+                            </ListGroup.Item>
+                        )}
+                    </ListGroup>
+        
                 </Container>
             </Modal.Body>
             <Modal.Footer>

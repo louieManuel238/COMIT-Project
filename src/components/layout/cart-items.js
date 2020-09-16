@@ -3,8 +3,15 @@ import React from 'react';
 function CartItems({item}) {
     return (
         <div>
-            {item.name}
-            {item.}
+            <div>
+                {item.images.url}
+                {item.images.color}
+                {item.name}
+                
+            </div>
+            <div>
+                {item.price}
+            </div>
         </div>
     );
 }
