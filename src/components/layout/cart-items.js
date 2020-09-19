@@ -4,9 +4,10 @@ function CartItems({item}) {
     return (
         <div>
             <div>
-                {item.images.url}
-                {item.images.color}
-                {item.name}
+                {item.name} 
+                {item.sizes} 
+                {item.colors} 
+                {item.quantity} 
                 
             </div>
             <div>

@@ -10,15 +10,14 @@ function Banner({categoryList, cartItems}) {
     const handleCheckoutModalClose = () => setCheckoutModal(false);
     const handleCheckoutModalShow = () => setCheckoutModal(true);
 
-   
-    
 
     return (
         <div>
             
-            <OperationsNavigation handleShow={handleCheckoutModalShow}>
-            </OperationsNavigation>
-            <ProductNavigation generalCategory={categoryList} ></ProductNavigation>
+            <OperationsNavigation handleShow={handleCheckoutModalShow}></OperationsNavigation>
+            <ProductNavigation 
+                generalCategory={categoryList} 
+            ></ProductNavigation>
 
             <CheckoutModal 
                 handleShow={handleCheckoutModalShow}

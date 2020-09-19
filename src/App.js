@@ -13,6 +13,7 @@ import  {Product} from './components/product-listing/product';
 import Banner from './components/layout/banner';
 import Promotional from './components/layout/promotional';
 import CheckoutModal from './components/layout/checkout-modal';
+import { findIndex } from 'lodash';
 
 function App() {
 
@@ -30,27 +31,31 @@ function App() {
 
 
   useEffect(() => {
-      //jjust need to show the items access to localstorage and find item in json and save as object add to obarr(sopping bag)
-      // for (let i = 0; i < localStorage.length; i++){
-      //     const item = products.find((product) => product.id === parseInt(localStorage.key(i),10))
-      //     setCartItems([...cartItems, {...item, quantity: localStorage.getItem(parseInt(localStorage.key(i),10))}])
-      // }
+      if(localStorage.getItem("cart") !== null)
+        setCartItems(JSON.parse(localStorage.getItem("cart")))
+      else 
+        setCartItems([])
   },[])
 
   useEffect(()=>{localStorage.setItem("cart", JSON.stringify(cartItems))},[cartItems])
 
     const addCartItems = (product) => {
       const exisitInCartItem = cartItems.find((item) => item.id === product.id && item.sizes === product.sizes && item.colors === product.colors)
-      console.log(product.sizes)
+
       if(exisitInCartItem != undefined) {
-        const newCart = cartItems.filter((item) => item.id === product.id && item.sizes === product.sizes && item.colors === product.colors);
-         setCartItems([...newCart, {...exisitInCartItem, quantity: exisitInCartItem.quantity+1}])
+         //const newCart = cartItems.filter((item) => item.id !== product.id && item.sizes !== product.sizes && item.colors !== product.colors);
+        // console.log(newCart)
+         // setCartItems([...newCart, {...exisitInCartItem, quantity: exisitInCartItem.quantity+1}])
+         const newCart = [...cartItems]
+         
+        const updatedItem = {...exisitInCartItem, quantity: exisitInCartItem.quantity+1}
+        newCart[newCart.findIndex((item) => item.id === product.id && item.sizes === product.sizes && item.colors === product.colors)] = updatedItem;
+        // console.log(newCart.findIndex((item) => item.id === product.id && item.sizes === product.sizes && item.colors === product.colors))
+        setCartItems(newCart)
       }else{
         // const item = products.find((item) => item.id === product.id)
-
         setCartItems([...cartItems, {...product, quantity: 1}])
       }
-
     }
     
   return (
@@ -58,7 +63,7 @@ function App() {
       <Router>
         {/* {console.log(sortProducts(["price", "asc"]))} */}
         
-        
+ 
         <Banner 
           categoryList={categoryList}
           cartItems={cartItems}>

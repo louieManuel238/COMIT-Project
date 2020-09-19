@@ -50,7 +50,7 @@ function OperationsNavigation(props) {
     );  
 }
 
-function ProductNavigation({generalCategory}) {
+function ProductNavigation({generalCategory},props) {
     // console.log(generalCategory)
 
     return (
