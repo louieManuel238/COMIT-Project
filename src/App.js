@@ -78,6 +78,12 @@ function App() {
                   </Route>))
               })
           }
+          <Route path={"/accessories"}>
+            <ProductList 
+              items={getProductsByCategory(["accessories"])} 
+              addToCart={addCartItems}
+            />
+          </Route>
           <Route path="/">
             <Promotional/>
           </Route>

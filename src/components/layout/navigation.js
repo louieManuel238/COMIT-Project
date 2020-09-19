@@ -57,28 +57,6 @@ function ProductNavigation({generalCategory}) {
         <div>
             <NavBar bg="light" expand="lg">
                 <Nav className="mr-auto justify-content-center" style={{width: '100%'}}>
-                    <NavDropdown title="Men">
-                        <Container>
-                            <div>
-                                <NavItem>
-                                    <NavLink>Features</NavLink>
-                                    <Dropdown.Divider/>
-                                    <NavDropdown.Item>New Arival</NavDropdown.Item>
-                                    <NavDropdown.Item>Sale</NavDropdown.Item>
-                                    <NavDropdown.Item>Seasonal</NavDropdown.Item>
-                                </NavItem>
-                            </div>
-                            <div>
-                                <NavItem>
-                                    {generalCategory.men.map((category, index)=> (
-                                        <LinkContainer to={"/men/"+category} style={{backgroundColor:"white", color: "black"}} key={index}>
-                                            <NavDropdown.Item>{category}</NavDropdown.Item>
-                                        </LinkContainer>
-                                    ))}
-                                </NavItem>
-                            </div>
-                        </Container>
-                    </NavDropdown>
                     <NavDropdown title="Women">
                         <Container>
                             <div>
@@ -94,6 +72,28 @@ function ProductNavigation({generalCategory}) {
                                 <NavItem>
                                     {generalCategory.women.map((category, index)=> (
                                          <LinkContainer to={"/women/"+category} style={{backgroundColor:"white", color: "black"}} key={index}>
+                                            <NavDropdown.Item>{category}</NavDropdown.Item>
+                                        </LinkContainer>
+                                    ))}
+                                </NavItem>
+                            </div>
+                        </Container>
+                    </NavDropdown>
+                    <NavDropdown title="Men">
+                        <Container>
+                            <div>
+                                <NavItem>
+                                    <NavLink>Features</NavLink>
+                                    <Dropdown.Divider/>
+                                    <NavDropdown.Item>New Arival</NavDropdown.Item>
+                                    <NavDropdown.Item>Sale</NavDropdown.Item>
+                                    <NavDropdown.Item>Seasonal</NavDropdown.Item>
+                                </NavItem>
+                            </div>
+                            <div>
+                                <NavItem>
+                                    {generalCategory.men.map((category, index)=> (
+                                        <LinkContainer to={"/men/"+category} style={{backgroundColor:"white", color: "black"}} key={index}>
                                             <NavDropdown.Item>{category}</NavDropdown.Item>
                                         </LinkContainer>
                                     ))}

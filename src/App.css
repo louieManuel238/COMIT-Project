@@ -105,3 +105,65 @@ a:active, a:visited, a:link{
 .product{
   margin: 15px 5px 5px 10px;
 }
+
+
+
+.color-radios div, .size-radios div {
+  display: inline-block;
+}
+.color-radios input[type="radio"], .size-radios input[type="radio"]{
+  display: none;
+  
+}
+
+.color-radios input[type="radio"] + label, .size-radios input[type="radio"] + label {
+  color: #333;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+.size-radios input[type="radio"] + label span {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: -1px 4px 0 0;
+  vertical-align: middle;
+  cursor: pointer;
+  border-radius: 20%;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+  line-height: 30px;
+
+}
+
+.color-radios input[type="radio"] + label span {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: -1px 4px 0 0;
+  vertical-align: middle;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+  line-height: 30px;
+
+}
+.color-radios input[type="radio"] + label span svg {
+  opacity: 0;
+  transition: all .3s ease;
+}
+
+.color-radios input[type="radio"]:checked + label span svg{
+opacity: 1;
+}
+
+.size-radios input[type="radio"]:checked + label span{
+  background-color: darkgray;
+  }
+  

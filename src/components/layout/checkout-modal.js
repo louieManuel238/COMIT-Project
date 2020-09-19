@@ -4,8 +4,6 @@ import CartItems from './cart-items'
 
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import ListGroup from 'react-bootstrap/ListGroup';
 
@@ -30,7 +28,6 @@ function CheckoutModal(props) {
                             </ListGroup.Item>
                         )}
                     </ListGroup>
-        
                 </Container>
             </Modal.Body>
             <Modal.Footer>

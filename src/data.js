@@ -65,8 +65,8 @@ export const items = [
     ]
 export const categories = 
   {
-    "women":["shoes","jeans","joggers","leggings","tshirt","dress",],
-    "men":["shoes","jeans","tshirt","jackets"],
+    "women":["shoes","jeans","joggers","leggings","tshirt","dress","shorts"],
+    "men":["shoes","jeans","tshirt","jackets", "shorts"],
     "kids":["shoes","pants"]
   }
     
