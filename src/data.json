@@ -202,10 +202,38 @@
     },
     {
         "id": 8,
-        "name": "Shea",
+        "name": "Pink Summer Dress",
+        "category": [
+            "women", "dress"
+        ],
+        "sizes": [
+            "s", "m", "l"
+        ],
+        "colors": [
+            "pink"
+        ],
+        "description": "Lace Overlay Off-the-Shoulder floural Dress",
+        "price": 99,
+        "images": [
+            {
+                "url": "/images/products/dress/pink-summer-dress1.jpg",
+                "color": "pink"
+            },
+            {
+                "url": "/images/products/dress/pink-summer-dress2.jpg",
+                "color": "pink"
+            },
+            {
+                "url": "/images/products/dress/pink-summer-dress3.jpg",
+                "color": "pink"
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "name": "Shea Sunglasses",
         "category": [
             "accessories"
-            
         ],
         "sizes": [
         ],
@@ -222,6 +250,58 @@
             {
                 "url": "/images/products/accessories/rose-gold-sunglasses2.jpg",
                 "color": "gold"
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "name": "Lemon purse",
+        "category": [
+            "accessories"
+        ],
+        "sizes": [
+        ],
+        "colors": [
+            "yellow"
+        ],
+        "description": "Round Lemmon Purse",
+        "price": 300,
+        "images": [
+            {
+                "url": "/images/products/accessories/lemon-purse1.jpg",
+                "color": "yellow"
+            },
+            {
+                "url": "/images/products/accessories/lemon-purse2.jpg",
+                "color": "yellow"
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "name": "Pink purse",
+        "category": [
+            "accessories"
+        ],
+        "sizes": [
+        ],
+        "colors": [
+            "pink"
+        ],
+        "description": "Light colored pink purse for everyday use",
+        "price": 325,
+        "images": [
+            {
+                "url": "/images/products/accessories/light-pink-purse1.jpg",
+                "color": "pink"
+            },
+            {
+                "url": "/images/products/accessories/light-pink-purse2.jpg",
+                "color": "pink"
+            },
+            {
+                "url": "/images/products/accessories/light-pink-purse3.jpg",
+                "color": "pink"
             }
         ]
     }

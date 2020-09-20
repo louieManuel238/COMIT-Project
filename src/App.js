@@ -17,7 +17,6 @@ import { findIndex } from 'lodash';
 
 function App() {
 
-
     const [products] = useState(items);
     const [categoryList] = useState(categories);
     const [cartItems, setCartItems] = useState([]);
@@ -39,31 +38,37 @@ function App() {
 
   useEffect(()=>{localStorage.setItem("cart", JSON.stringify(cartItems))},[cartItems])
 
-    const addCartItems = (product) => {
-      const exisitInCartItem = cartItems.find((item) => item.id === product.id && item.sizes === product.sizes && item.colors === product.colors)
-
-      if(exisitInCartItem != undefined) {
-         //const newCart = cartItems.filter((item) => item.id !== product.id && item.sizes !== product.sizes && item.colors !== product.colors);
-        // console.log(newCart)
-         // setCartItems([...newCart, {...exisitInCartItem, quantity: exisitInCartItem.quantity+1}])
-         const newCart = [...cartItems]
-         
-        const updatedItem = {...exisitInCartItem, quantity: exisitInCartItem.quantity+1}
-        newCart[newCart.findIndex((item) => item.id === product.id && item.sizes === product.sizes && item.colors === product.colors)] = updatedItem;
-        // console.log(newCart.findIndex((item) => item.id === product.id && item.sizes === product.sizes && item.colors === product.colors))
-        setCartItems(newCart)
-      }else{
-        // const item = products.find((item) => item.id === product.id)
-        setCartItems([...cartItems, {...product, quantity: 1}])
-      }
+  //Update img url in cartItems
+  const getImageUrl = (item) => {
+    if(item !== undefined){
+      return item.images.find(url => url.color === item.colors)
     }
+    
+  }
+
+  const addCartItems = (product) => {
+    const exisitInCartItem = cartItems.find((item) => item.id === product.id && item.sizes === product.sizes && item.colors === product.colors)
+
+    if(exisitInCartItem !== undefined) {
+
+      const newCart = [...cartItems]
+      const updatedItem = {...exisitInCartItem, quantity: exisitInCartItem.quantity+1}
+      newCart[newCart.findIndex((item) => item.id === product.id && item.sizes === product.sizes && item.colors === product.colors)] = updatedItem;
+      // console.log(newCart.findIndex((item) => item.id === product.id && item.sizes === product.sizes && item.colors === product.colors))
+      
+      setCartItems(newCart)
+    }else{
+      // const item = products.find((item) => item.id === product.id)
+     
+      setCartItems([...cartItems, {...product, quantity: 1, images: getImageUrl(product)}])
+    }
+  }
     
   return (
     <div className="App">
       <Router>
         {/* {console.log(sortProducts(["price", "asc"]))} */}
         
- 
         <Banner 
           categoryList={categoryList}
           cartItems={cartItems}>
