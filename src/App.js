@@ -78,6 +78,9 @@ function App() {
     }
     notify(product)
   }
+  const removeCartitems = (item) => {
+      return setCartItems(cartItems.filter(i => i!==item))
+  }
     
   return (
     <div className="App">
@@ -86,8 +89,8 @@ function App() {
         <ToastContainer></ToastContainer>
         <Banner 
           categoryList={categoryList}
-          cartItems={cartItems}>
-        </Banner>
+          cartItems={cartItems}
+          removeCartitems={removeCartitems}/>
         
         <Switch>
           {
@@ -107,6 +110,7 @@ function App() {
             <ProductList 
               items={getProductsByCategory(["accessories"])} 
               addToCart={addCartItems}
+              
             />
           </Route>
           <Route path="/">

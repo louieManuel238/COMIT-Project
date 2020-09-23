@@ -7,7 +7,7 @@ import Modal from 'react-bootstrap/Modal';
 import Container from 'react-bootstrap/Container';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-import {MdClose} from 'react-icons/md'
+
 
 function CheckoutModal(props) {
     
@@ -45,26 +45,29 @@ function CheckoutModal(props) {
                     <ListGroup  variant="flush">
                         {props.items.map( (item) => 
                             <ListGroup.Item>
-                                <CartItems item={item}/> <span style={{float: 'right'}}><Button><MdClose/></Button></span>
-                            </ListGroup.Item>   
+                                <CartItems item={item}/> 
+                                <span style={{float: 'right'}}>
+                                    <Button variant="dark" onClick={()=> props.delete(item)}>Remove</Button>
+                                </span>
+                            </ListGroup.Item>
                         )}
                     </ListGroup>
                 </Container>
                 <Container className="itemPrice-Cart">
                     <hr/>
-                    <ListGroup>
+                    <ListGroup variant="flush">
                         <ListGroup.Item><span>Subtotal: <strong>{pricing.subtotal}</strong></span></ListGroup.Item>
                         <ListGroup.Item><span>Tax: <strong>{pricing.tax}%</strong></span> </ListGroup.Item>
-                        <ListGroup.Item><span>Tax: <strong>{pricing.shipping}</strong></span> </ListGroup.Item>
+                        <ListGroup.Item><span>Shipping: <strong>{pricing.shipping}</strong></span> </ListGroup.Item>
                         <ListGroup.Item><span>Discount: <strong>{pricing.discount}%</strong></span> </ListGroup.Item>
                         <ListGroup.Item><span>Coupon : <strong>{pricing.coupon}%</strong></span> </ListGroup.Item>
-                        <ListGroup.Item active><span>Total : <strong>{getTotalPrice(pricing)}</strong></span> </ListGroup.Item>
+                        <ListGroup.Item  active variant="light"><span>Total : <strong>{getTotalPrice(pricing)}</strong></span> </ListGroup.Item>
                         
                     </ListGroup>
                 </Container>    
             </Modal.Body>
             <Modal.Footer>
-            <Button variant="primary">Proceed To Checkout</Button>
+            <Button variant="dark">Proceed To Checkout</Button>
             </Modal.Footer>
         </Modal>
         </div>

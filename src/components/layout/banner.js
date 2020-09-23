@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import CheckoutModal from './checkout-modal';
 import {OperationsNavigation, ProductNavigation} from './navigation';
 
-function Banner({categoryList, cartItems}) {
+function Banner({categoryList, cartItems, removeCartitems}) {
     // console.log(categoryList[0].kids)
     const [showCheckoutModal, setCheckoutModal] = useState(false);
 
@@ -24,6 +24,7 @@ function Banner({categoryList, cartItems}) {
                 handleClose={handleCheckoutModalClose}
                 show={showCheckoutModal}
                 items={cartItems}
+                delete={removeCartitems}
             />
         </div>
     );

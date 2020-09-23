@@ -194,7 +194,7 @@ li a, a:hover, a:focus, li a:active , .card-link{
 .card-footer button{
   margin-left: 15px;
   margin-right: 15px;
-  width: 10x`em;
+  width: 10em;
 }
 .copyright{
   background-color:#f8f9fa!important;
