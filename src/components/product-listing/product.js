@@ -5,7 +5,8 @@ import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
 
 import {RiAddCircleLine} from 'react-icons/ri';
-import {ImCheckmark} from 'react-icons/im'
+import {ImCheckmark} from 'react-icons/im';
+import {ImHeart} from 'react-icons/im'
 
 export const Product = ({product,addToCart}) => {
     
@@ -16,7 +17,7 @@ export const Product = ({product,addToCart}) => {
     return(
         <div className="product">
             
-                <Card border="primary" style={{ flex: '1', width: '30em', height:'580px', position: 'relative'}}>
+                <Card border="primary">
 
 
                     <Card.Body>
@@ -24,7 +25,7 @@ export const Product = ({product,addToCart}) => {
                         {
                             product.images.map((image, index) => (
                              (<Carousel.Item key={index}>
-                                    <Card.Img variant="top" src={process.env.PUBLIC_URL + image.url} key={index}  style={{objectFit: 'cover', height:'20em'}}/>
+                                    <Card.Img variant="top" src={process.env.PUBLIC_URL + image.url} key={index}  />
                                     {/* {console.log(url)} */}
                                 </Carousel.Item>)
                             ))
@@ -58,7 +59,7 @@ export const Product = ({product,addToCart}) => {
                                      />
                                      <label htmlFor={color+product.id} >
                                         <span style={{backgroundColor: color}}>
-                                            <ImCheckmark/>
+                                            <ImCheckmark size={20}/>
                                         </span>
                                     </label>
                                     
@@ -67,8 +68,14 @@ export const Product = ({product,addToCart}) => {
                         </div>
                     </Card.Body>
                     <Card.Footer>
-                        <Card.Link variant="primary" href="#" onClick={()=>addToCart({...product,colors: colorSelected, sizes: sizeSelected})}><RiAddCircleLine size={30}/></Card.Link>
-                        <Card.Link variant="primary" href="#">Add to wishlist</Card.Link>
+                        <Button variant="dark"onClick={()=>addToCart({...product,colors: colorSelected, sizes: sizeSelected})}>
+                            <RiAddCircleLine size={30}/>
+                            <small>Add to Cart</small>
+                        </Button>
+                        <Button variant="dark" >
+                            <ImHeart size={30}/>
+                            <small>Add to Wishlist</small>
+                        </Button>
                     </Card.Footer>
                 </Card>
         </div>

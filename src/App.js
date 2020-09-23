@@ -1,19 +1,21 @@
 import React, {useState, useEffect} from 'react';
 import { Switch, Route,  BrowserRouter as Router } from "react-router-dom";
 
+
 import './App.css';
 
 // import {items,categories} from './data';
 import items from './data.json';
 import categories from './category.json';
 import ProductList from './components/product-listing/product-list';
-import  {Product} from './components/product-listing/product';
-
+import { CopyrightFooter, Footer } from './components/layout/footer';
 
 import Banner from './components/layout/banner';
 import Promotional from './components/layout/promotional';
-import CheckoutModal from './components/layout/checkout-modal';
-import { findIndex } from 'lodash';
+
+import {ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
 
@@ -36,8 +38,20 @@ function App() {
         setCartItems([])
   },[])
 
-  useEffect(()=>{localStorage.setItem("cart", JSON.stringify(cartItems))},[cartItems])
+  useEffect(()=>{
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+  },[cartItems])
 
+  const notify = (item) => {
+      toast.success((item.name + " is Added in your Cart"), {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      progress: undefined,
+      });
+  }
   //Update img url in cartItems
   const getImageUrl = (item) => {
     if(item !== undefined){
@@ -62,13 +76,14 @@ function App() {
      
       setCartItems([...cartItems, {...product, quantity: 1, images: getImageUrl(product)}])
     }
+    notify(product)
   }
     
   return (
     <div className="App">
       <Router>
         {/* {console.log(sortProducts(["price", "asc"]))} */}
-        
+        <ToastContainer></ToastContainer>
         <Banner 
           categoryList={categoryList}
           cartItems={cartItems}>
@@ -98,6 +113,8 @@ function App() {
             <Promotional/>
           </Route>
         </Switch>
+        <Footer></Footer>
+        <CopyrightFooter></CopyrightFooter>
       </Router>
 
      {/* <ProductList items={products}></ProductList> */}
