@@ -1,6 +1,6 @@
 import React from 'react';
 import { Product } from './product';
-import Sort from './sort';
+import {Sort} from './sort';
 import {orderBy} from 'lodash';
 
 import CardDeck from 'react-bootstrap/CardDeck';
