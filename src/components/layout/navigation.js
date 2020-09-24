@@ -123,13 +123,16 @@ function ProductNavigation({generalCategory},props) {
                             </div>
                         </Container>
                     </NavDropdown>
-                    <NavDropdown title="Accessories">
+                    
+                    
+                        <NavDropdown title="Accessories">
                         <Container>
                             <LinkContainer to={"/accessories/new"}  style={{backgroundColor:"white", color: "black"}}>
                                 <NavDropdown.Item>New</NavDropdown.Item>
                             </LinkContainer>
                         </Container>
                     </NavDropdown>
+                    
                     <NavDropdown title="Clearance">
                         <Container>
                             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

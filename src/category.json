@@ -2,11 +2,12 @@
     "women": [
         "shoes",
         "jeans",
-        "joggers",
-        "leggings",
         "tshirt",
         "dress",
-        "shorts"
+        "shorts",
+        "top",
+        "joggers",
+        "leggings"
     ],
     "men": [
         "shoes",
@@ -16,6 +17,8 @@
     ],
     "kids": [
         "shoes",
+        "dress",
+        "top",
         "pants"
     ]
 }

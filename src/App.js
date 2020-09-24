@@ -19,7 +19,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
-    const [products] = useState(items);
+    const [products, setProducts] = useState(items);
     const [categoryList] = useState(categories);
     const [cartItems, setCartItems] = useState([]);
 
@@ -30,6 +30,7 @@ function App() {
       return filteredProduct;
     }
 
+    const handleItemChange = (newProducts) =>{setProducts(newProducts) }
 
   useEffect(() => {
       if(localStorage.getItem("cart") !== null)
@@ -102,6 +103,7 @@ function App() {
                         <ProductList 
                         items={getProductsByCategory([mainCategory,category])} 
                         addToCart={addCartItems}
+                        sort = {handleItemChange}
                         />
                   </Route>))
               })

@@ -159,11 +159,11 @@
                 "color": "black"
             },
             {
-                "url": "/images/products/tshirt/mens-black-fall-jacket2.jpg",
+                "url": "/images/products/jacket/mens-black-fall-jacket2.jpg",
                 "color": "black"
             },
             {
-                "url": "/images/products/tshirt/mens-black-fall-jacket3.jpg",
+                "url": "/images/products/jacket/mens-black-fall-jacket3.jpg",
                 "color": "black"
             }
         ]
@@ -302,6 +302,35 @@
             {
                 "url": "/images/products/accessories/light-pink-purse3.jpg",
                 "color": "pink"
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "name": "Black Floural Dress",
+        "category": [
+            "women", "dress", "top"
+        ],
+        "sizes": [
+            "s", "m", "l"
+        ],
+        "colors": [
+            "black"
+        ],
+        "description": "set of black floural Dress " ,
+        "price": 99,
+        "images": [
+            {
+                "url": "/images/products/dress/crop-top-and-dress1.jpg",
+                "color": "black"
+            },
+            {
+                "url": "/images/products/dress/crop-top-and-dress2.jpg",
+                "color": "black"
+            },
+            {
+                "url": "/images/products/dress/crop-top-and-dress3.jpg",
+                "color": "black"
             }
         ]
     }

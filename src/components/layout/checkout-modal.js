@@ -56,12 +56,12 @@ function CheckoutModal(props) {
                 <Container className="itemPrice-Cart">
                     <hr/>
                     <ListGroup variant="flush">
-                        <ListGroup.Item><span>Subtotal: <strong>{pricing.subtotal}</strong></span></ListGroup.Item>
+                        <ListGroup.Item><span>Subtotal: <strong>${pricing.subtotal}</strong></span></ListGroup.Item>
                         <ListGroup.Item><span>Tax: <strong>{pricing.tax}%</strong></span> </ListGroup.Item>
                         <ListGroup.Item><span>Shipping: <strong>{pricing.shipping}</strong></span> </ListGroup.Item>
                         <ListGroup.Item><span>Discount: <strong>{pricing.discount}%</strong></span> </ListGroup.Item>
                         <ListGroup.Item><span>Coupon : <strong>{pricing.coupon}%</strong></span> </ListGroup.Item>
-                        <ListGroup.Item  active variant="light"><span>Total : <strong>{getTotalPrice(pricing)}</strong></span> </ListGroup.Item>
+                        <ListGroup.Item  active variant="light"><span>Total : <strong>$ {getTotalPrice(pricing)}</strong></span> </ListGroup.Item>
                         
                     </ListGroup>
                 </Container>    
