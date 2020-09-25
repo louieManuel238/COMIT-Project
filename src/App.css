@@ -199,3 +199,6 @@ li a, a:hover, a:focus, li a:active , .card-link{
 .copyright{
   background-color:#f8f9fa!important;
 }
+.checkoutButton:active, .checkoutButton:visited, .checkoutButton{
+  background-color: #343a40 !important;
+}

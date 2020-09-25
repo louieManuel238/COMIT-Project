@@ -9,6 +9,7 @@ import items from './data.json';
 import categories from './category.json';
 import ProductList from './components/product-listing/product-list';
 import { CopyrightFooter, Footer } from './components/layout/footer';
+import ProceedCheckout from './components/system/proceed-checkout';
 
 import Banner from './components/layout/banner';
 import Promotional from './components/layout/promotional';
@@ -114,6 +115,9 @@ function App() {
               addToCart={addCartItems}
               
             />
+          </Route>
+          <Route path={"/checkout"} >
+            <ProceedCheckout cartItems={cartItems}/>
           </Route>
           <Route path="/">
             <Promotional/>

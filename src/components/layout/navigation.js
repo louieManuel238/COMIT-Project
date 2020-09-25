@@ -25,7 +25,7 @@ function OperationsNavigation(props) {
 
                 <NavBar.Collapse id="basic-navbar-nav">
                     <Nav className="justify-content-end" style={{ width: "100%" }}>
-                        <Nav.Item>
+                        <Nav.Item onClick={props.handleShowAccount}> 
                             <Nav.Link href="#home"><RiAccountCircleLine size={30}/></Nav.Link>  
                             <Nav.Link href="#home">Account  </Nav.Link>
                         </Nav.Item>
@@ -33,7 +33,7 @@ function OperationsNavigation(props) {
                             <Nav.Link href="#home"><BiHeart size={30}/></Nav.Link>
                             <Nav.Link href="#link">Wishlist </Nav.Link>
                         </Nav.Item>
-                        <Nav.Item onClick={props.handleShow}>
+                        <Nav.Item onClick={props.handleShowCheckout}>
                             <Nav.Link href="#home"><GiShoppingCart size={30}/></Nav.Link>
                             <Nav.Link href="#home">Checkout </Nav.Link>
                         </Nav.Item>

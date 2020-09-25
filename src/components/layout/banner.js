@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import AcountsModal from '../system/accouts-modal';
 
 import CheckoutModal from './checkout-modal';
 import {OperationsNavigation, ProductNavigation} from './navigation';
@@ -6,15 +7,22 @@ import {OperationsNavigation, ProductNavigation} from './navigation';
 function Banner({categoryList, cartItems, removeCartitems}) {
     // console.log(categoryList[0].kids)
     const [showCheckoutModal, setCheckoutModal] = useState(false);
+    const [showAccountModal, setAccountModal] = useState(false);
 
     const handleCheckoutModalClose = () => setCheckoutModal(false);
     const handleCheckoutModalShow = () => setCheckoutModal(true);
+
+    const handleAccountModalClose = () => setAccountModal(false);
+    const handleAccountModalShow = () => setAccountModal(true);
 
 
     return (
         <div>
             
-            <OperationsNavigation handleShow={handleCheckoutModalShow}></OperationsNavigation>
+            <OperationsNavigation 
+                handleShowCheckout={handleCheckoutModalShow}
+                handleShowAccount={handleAccountModalShow}
+            />
             <ProductNavigation 
                 generalCategory={categoryList} 
             ></ProductNavigation>
@@ -25,6 +33,11 @@ function Banner({categoryList, cartItems, removeCartitems}) {
                 show={showCheckoutModal}
                 items={cartItems}
                 delete={removeCartitems}
+            />
+            <AcountsModal
+                handleShow={handleAccountModalShow}
+                handleClose={handleAccountModalClose}
+                show={showAccountModal}
             />
         </div>
     );

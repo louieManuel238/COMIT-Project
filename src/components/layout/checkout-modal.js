@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Container from 'react-bootstrap/Container';
 import ListGroup from 'react-bootstrap/ListGroup';
+import { LinkContainer } from 'react-router-bootstrap';
 
 
 
@@ -67,7 +68,9 @@ function CheckoutModal(props) {
                 </Container>    
             </Modal.Body>
             <Modal.Footer>
-            <Button variant="dark">Proceed To Checkout</Button>
+            <LinkContainer to={"/checkout"}>
+                <Button variant="dark" className="checkoutButton" onClick={props.handleClose    }>Proceed To Checkout</Button>
+            </LinkContainer>
             </Modal.Footer>
         </Modal>
         </div>
