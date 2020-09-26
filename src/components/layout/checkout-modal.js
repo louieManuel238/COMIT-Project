@@ -12,25 +12,10 @@ import { LinkContainer } from 'react-router-bootstrap';
 
 function CheckoutModal(props) {
     
-
-    const getSubTotal = () => {
-        let subtotal = 0;
-        props.items.map((item) => {
-              subtotal = subtotal + (item.price * item.quantity);
-        });
-        return subtotal;
+   
+    const clickProceedToCheckout = () =>{
+        props.handleClose(); 
     }
-    const getTotalPrice = (pricing) => {
-        return (pricing.subtotal + (pricing.subtotal* (pricing.tax/100)) - (pricing.subtotal* (pricing.discount/100)) + pricing.shipping)
-    }
-    const pricing = {
-        subtotal: getSubTotal(),
-        tax: 5,
-        shipping: 0,
-        discount: 0,
-        coupon: 0 
-    }
-    
     return (
         <div>
         <Modal
@@ -57,19 +42,19 @@ function CheckoutModal(props) {
                 <Container className="itemPrice-Cart">
                     <hr/>
                     <ListGroup variant="flush">
-                        <ListGroup.Item><span>Subtotal: <strong>${pricing.subtotal}</strong></span></ListGroup.Item>
-                        <ListGroup.Item><span>Tax: <strong>{pricing.tax}%</strong></span> </ListGroup.Item>
-                        <ListGroup.Item><span>Shipping: <strong>{pricing.shipping}</strong></span> </ListGroup.Item>
-                        <ListGroup.Item><span>Discount: <strong>{pricing.discount}%</strong></span> </ListGroup.Item>
-                        <ListGroup.Item><span>Coupon : <strong>{pricing.coupon}%</strong></span> </ListGroup.Item>
-                        <ListGroup.Item  active variant="light"><span>Total : <strong>$ {getTotalPrice(pricing)}</strong></span> </ListGroup.Item>
+                        <ListGroup.Item><span>Subtotal: <strong>${props.pricing.subtotal}</strong></span></ListGroup.Item>
+                        <ListGroup.Item><span>Tax: <strong>{props.pricing.tax}%</strong></span> </ListGroup.Item>
+                        <ListGroup.Item><span>Shipping: <strong>{props.pricing.shipping}</strong></span> </ListGroup.Item>
+                        <ListGroup.Item><span>Discount: <strong>{props.pricing.discount}%</strong></span> </ListGroup.Item>
+                        <ListGroup.Item><span>Coupon : <strong>{props.pricing.coupon}%</strong></span> </ListGroup.Item>
+                        <ListGroup.Item  active variant="light"><span>Total : {props.pricing.total}<strong>$ </strong></span> </ListGroup.Item>
                         
                     </ListGroup>
                 </Container>    
             </Modal.Body>
             <Modal.Footer>
             <LinkContainer to={"/checkout"}>
-                <Button variant="dark" className="checkoutButton" onClick={props.handleClose    }>Proceed To Checkout</Button>
+                <Button variant="dark" className="checkoutButton" onClick={clickProceedToCheckout}>Proceed To Checkout</Button>
             </LinkContainer>
             </Modal.Footer>
         </Modal>

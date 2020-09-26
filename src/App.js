@@ -23,6 +23,14 @@ function App() {
     const [products, setProducts] = useState(items);
     const [categoryList] = useState(categories);
     const [cartItems, setCartItems] = useState([]);
+    let pricing ={
+      subtotal: 0,
+      tax: 5,
+      shipping: 0,
+      discount: 0,
+      coupon: 0,
+      total: 0
+    }
 
     const getProductsByCategory = (filterCriteria) => {
       const filteredProduct = products.filter((product) => (
@@ -32,6 +40,7 @@ function App() {
     }
 
     const handleItemChange = (newProducts) =>{setProducts(newProducts) }
+  
 
   useEffect(() => {
       if(localStorage.getItem("cart") !== null)
@@ -83,7 +92,21 @@ function App() {
   const removeCartitems = (item) => {
       return setCartItems(cartItems.filter(i => i!==item))
   }
-    
+
+
+const getSubTotal = () => {
+    let subtotal = 0;
+    cartItems.map((item) => {
+         subtotal = subtotal + (item.price * item.quantity);
+    });
+    return subtotal;
+}
+const getTotal = () => {
+  return pricing.subtotal + (pricing.subtotal* (pricing.tax/100)) - (pricing.subtotal* (pricing.discount/100)) + pricing.shipping;
+}
+pricing =  {...pricing, subtotal: getSubTotal()}
+pricing = {...pricing, total: getTotal()}
+
   return (
     <div className="App">
       <Router>
@@ -92,7 +115,10 @@ function App() {
         <Banner 
           categoryList={categoryList}
           cartItems={cartItems}
-          removeCartitems={removeCartitems}/>
+          removeCartitems={removeCartitems}
+          pricing={pricing}
+          />
+          
         
         <Switch>
           {
@@ -117,7 +143,7 @@ function App() {
             />
           </Route>
           <Route path={"/checkout"} >
-            <ProceedCheckout cartItems={cartItems}/>
+            <ProceedCheckout cartItems={cartItems} pricing={pricing}/>
           </Route>
           <Route path="/">
             <Promotional/>

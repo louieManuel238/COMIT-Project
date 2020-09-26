@@ -4,7 +4,7 @@ import AcountsModal from '../system/accouts-modal';
 import CheckoutModal from './checkout-modal';
 import {OperationsNavigation, ProductNavigation} from './navigation';
 
-function Banner({categoryList, cartItems, removeCartitems}) {
+function Banner({categoryList, cartItems, removeCartitems, pricing}) {
     // console.log(categoryList[0].kids)
     const [showCheckoutModal, setCheckoutModal] = useState(false);
     const [showAccountModal, setAccountModal] = useState(false);
@@ -33,6 +33,7 @@ function Banner({categoryList, cartItems, removeCartitems}) {
                 show={showCheckoutModal}
                 items={cartItems}
                 delete={removeCartitems}
+                pricing={pricing}
             />
             <AcountsModal
                 handleShow={handleAccountModalShow}
