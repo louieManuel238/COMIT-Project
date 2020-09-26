@@ -1,6 +1,6 @@
 import React from 'react';
 
-function CartItems({item}) {
+function CartItems({item, handleChangeQuantity}) {
     return (
         <div style={{display: 'flex'}}>
             <div style={{flex: '1'}}>
@@ -20,7 +20,7 @@ function CartItems({item}) {
                                         </span>
                                     </label>
                         </div><br/>
-                <strong>${item.price} x {item.quantity}</strong><br/>
+                <strong>${item.price} x <input type="number" min="1" defaultValue={item.quantity} style={{width: "3em"}} onChange={(event)=>handleChangeQuantity(event, item)}/></strong><br/>
             </div>
         </div>
     );

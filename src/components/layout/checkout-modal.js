@@ -31,7 +31,7 @@ function CheckoutModal(props) {
                     <ListGroup  variant="flush">
                         {props.items.map( (item) => 
                             <ListGroup.Item>
-                                <CartItems item={item}/> 
+                                <CartItems item={item} handleChangeQuantity={props.handleChangeQuantity}/> 
                                 <span style={{float: 'right'}}>
                                     <Button variant="dark" onClick={()=> props.delete(item)}>Remove</Button>
                                 </span>

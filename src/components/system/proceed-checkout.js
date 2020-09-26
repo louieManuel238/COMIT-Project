@@ -16,16 +16,45 @@ function ProceedCheckout(props) {
                         <span className="badge badge-secondary badge-pill">{props.cartItems.length}</span>
                     </h4>
                     <ul className="list-group mb-3">
-                        {props.cartItems.map(item => {return (
-                            <li className="list-group-item d-flex justify-content-between lh-condensed">
-                            <div>
-                                <h6 className="my-0">{item.name}</h6>
-                                <small className="text-muted">{item.description}</small>
-                            </div>
-                            <span className="text-muted">{item.price}</span>
-                            </li>
-                            )}
+                        {props.cartItems.map((item) => 
+                            {
+                              return (  <li className="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <h6 className="my-0">{item.name} - QTY {item.quantity}</h6>
+                                    <small className="text-muted">{item.description}</small>
+                                </div>
+                                <span className="text-muted">${item.price}</span>
+                                </li>)
+                            }
                         )}
+                        <li className="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <h6 className="my-0">Shipping</h6>
+                                <small className="text-muted"></small>
+                            </div>
+                            <span className="text-muted">${props.pricing.shipping}</span>
+                        </li>
+                        <li className="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <h6 className="my-0">Tax</h6>
+                                <small className="text-muted"></small>
+                            </div>
+                            <span className="text-muted">{props.pricing.tax}%</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between bg-light">
+                            <div class="text-success">
+                                <h6 class="my-0">Promo code</h6>
+                                <small>EXAMPLECODE</small>
+                            </div>
+                            <span class="text-success">- ${props.pricing.coupon}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between bg-light">
+                            <div class="text-success">
+                                <h6 class="my-0">Discount</h6>
+                                <small>EXAMPLECODE</small>
+                            </div>
+                            <span class="text-success">- ${props.pricing.coupon}</span>
+                        </li>
                         <li className="list-group-item d-flex justify-content-between">
                             <span>Total (CAD)</span>
                             <strong>${props.pricing.total}</strong>

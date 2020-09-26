@@ -20,7 +20,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
-    const [products, setProducts] = useState(items);
+    const [products] = useState(items);
     const [categoryList] = useState(categories);
     const [cartItems, setCartItems] = useState([]);
     let pricing ={
@@ -38,9 +38,6 @@ function App() {
       ))
       return filteredProduct;
     }
-
-    const handleItemChange = (newProducts) =>{setProducts(newProducts) }
-  
 
   useEffect(() => {
       if(localStorage.getItem("cart") !== null)
@@ -89,15 +86,12 @@ function App() {
     }
     notify(product)
   }
-  const removeCartitems = (item) => {
-      return setCartItems(cartItems.filter(i => i!==item))
-  }
 
 
 const getSubTotal = () => {
     let subtotal = 0;
     cartItems.map((item) => {
-         subtotal = subtotal + (item.price * item.quantity);
+        return subtotal = subtotal + (item.price * item.quantity);
     });
     return subtotal;
 }
@@ -115,8 +109,8 @@ pricing = {...pricing, total: getTotal()}
         <Banner 
           categoryList={categoryList}
           cartItems={cartItems}
-          removeCartitems={removeCartitems}
           pricing={pricing}
+          setCartItems={setCartItems}
           />
           
         

@@ -4,7 +4,7 @@ import AcountsModal from '../system/accouts-modal';
 import CheckoutModal from './checkout-modal';
 import {OperationsNavigation, ProductNavigation} from './navigation';
 
-function Banner({categoryList, cartItems, removeCartitems, pricing}) {
+function Banner({categoryList, cartItems, pricing, setCartItems}) {
     // console.log(categoryList[0].kids)
     const [showCheckoutModal, setCheckoutModal] = useState(false);
     const [showAccountModal, setAccountModal] = useState(false);
@@ -14,6 +14,20 @@ function Banner({categoryList, cartItems, removeCartitems, pricing}) {
 
     const handleAccountModalClose = () => setAccountModal(false);
     const handleAccountModalShow = () => setAccountModal(true);
+
+    const removeCartitems = (item) => {
+        return setCartItems(cartItems.filter(i => i!==item))
+    }
+
+    const handleChangeQuantity = (event, setItem) => {
+         setItem = {...setItem, quantity: parseInt(event.target.value,10)};
+        const newCart = [...cartItems]
+        newCart[newCart.findIndex((item) => item.id === setItem.id && item.sizes === setItem.sizes && item.colors === setItem.colors)] = setItem;
+        setCartItems(newCart)
+        console.log(newCart)
+        
+    }
+    
 
 
     return (
@@ -34,6 +48,7 @@ function Banner({categoryList, cartItems, removeCartitems, pricing}) {
                 items={cartItems}
                 delete={removeCartitems}
                 pricing={pricing}
+                handleChangeQuantity={handleChangeQuantity}
             />
             <AcountsModal
                 handleShow={handleAccountModalShow}

@@ -36,7 +36,7 @@ function AcountsModal(props) {
                         </Form.Group>
                         <Form.Group controlId="formBasicSignUp">
                             <Form.Text className="text-muted">
-                                Don't Have an Account? <a>Sign Up</a> Now
+                                Don't Have an Account? <a href="#a">Sign Up</a> Now
                             </Form.Text>
                         </Form.Group>
                   </Form>
