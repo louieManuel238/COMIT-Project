@@ -130,7 +130,7 @@ pricing = {...pricing, total: getTotal()}
                         <ProductList 
                         items={getProductsByCategory([mainCategory,category])} 
                         addToCart={addCartItems}
-                        sort = {handleItemChange}
+                      
                         />
                   </Route>))
               })

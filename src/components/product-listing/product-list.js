@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Product } from './product';
 import {Sort} from './sort';
 import {orderBy} from 'lodash';
@@ -8,12 +8,15 @@ import { Container } from 'react-bootstrap';
 
 export default function ProductList(props) {
    // const sortedItems = sortProducts(items, ["price"], ["desc"])
+    const [sortedProducts, setSortedProducts] = useState(props.items);
 
    const sortProducts = (event) => {
-       const sortCriteria = event.target.value.split(',')
-        props.sort(orderBy(props.items, sortCriteria[0], sortCriteria[1]));
-
+       const sortCriteria =  event.target.value.split(',');
+       setSortedProducts(orderBy(props.items, sortCriteria[0], sortCriteria[1]))
     }
+    
+    
+    
 
     return(
         
@@ -22,7 +25,7 @@ export default function ProductList(props) {
                 <Sort sort={sortProducts}/>
             </Container>
             <CardDeck style={{display: 'flex', flexDirection: 'row'}}>
-                {props.items.map((item) => (
+                {sortedProducts.map((item) => (
                     <div key={item.id}> <Product product={item} key={item.id} addToCart={props.addToCart}/> </div>
                 ))}
             </CardDeck>

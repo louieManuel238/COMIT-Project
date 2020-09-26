@@ -6,7 +6,7 @@ function Sort(props) {
         <div className="sortDiv">
             <b>Sort By: </b>
             <select  onChange={props.sort} value={this}>
-                <option value={["name", "asc"]}>Product Name[A-Z]</option>
+                <option value={["name", "asc"]} selected>Product Name[A-Z]</option>
                 <option value={["name", "desc"]}>Product Name[Z-A]</option>
                 <option value={["price", "asc"]}>Price: Lowest to Highest</option>
                 <option value={["price", "desc"]}>Price: Highest to Lowest</option>
