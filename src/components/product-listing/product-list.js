@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Product } from './product';
 import {Sort} from './sort';
 import {orderBy} from 'lodash';
@@ -8,15 +8,18 @@ import { Container } from 'react-bootstrap';
 
 export default function ProductList(props) {
    // const sortedItems = sortProducts(items, ["price"], ["desc"])
-    const [sortedProducts, setSortedProducts] = useState(props.items);
 
+    const [sortedProducts, setSortedProducts] = useState(props.items);
+    
+ 
    const sortProducts = (event) => {
        const sortCriteria =  event.target.value.split(',');
        setSortedProducts(orderBy(props.items, sortCriteria[0], sortCriteria[1]))
     }
     
-    
-    
+    useEffect(() => {
+        setSortedProducts(props.items);
+    },[props.items])
 
     return(
         

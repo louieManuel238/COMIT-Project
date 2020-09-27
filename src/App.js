@@ -87,7 +87,6 @@ function App() {
     notify(product)
   }
 
-
 const getSubTotal = () => {
     let subtotal = 0;
     cartItems.map((item) => {

@@ -32,7 +32,7 @@ function AcountsModal(props) {
                         </Form.Group>
 
                         <Form.Group controlId="formBasicSubmit">
-                            <Button variant="light" type="submit">Submit</Button>
+                            <Button variant="dark" type="submit">Submit</Button>
                         </Form.Group>
                         <Form.Group controlId="formBasicSignUp">
                             <Form.Text className="text-muted">

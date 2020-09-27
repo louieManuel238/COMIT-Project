@@ -4,6 +4,11 @@ import { Col, Container, Form, Row } from 'react-bootstrap';
 
 
 function ProceedCheckout(props) {
+    let totalQ = 0;
+    props.cartItems.map((item) => {
+      totalQ = totalQ + item.quantity;
+    })
+
     return (
         <div className="bg-light">
             <br/>
@@ -13,7 +18,7 @@ function ProceedCheckout(props) {
                     <Col className="col-md-4 order-md-2 mb-4">
                     <h4 className="d-flex justify-content-between align-items-center mb-3">
                         <span className="text-muted">Your cart</span>
-                        <span className="badge badge-secondary badge-pill">{props.cartItems.length}</span>
+                        <span className="badge badge-secondary badge-pill">{totalQ}</span>
                     </h4>
                     <ul className="list-group mb-3">
                         {props.cartItems.map((item) => 
