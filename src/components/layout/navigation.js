@@ -29,9 +29,9 @@ function OperationsNavigation(props) {
                             <Nav.Link href="#home"><RiAccountCircleLine size={30}/></Nav.Link>  
                             <Nav.Link href="#home">Account  </Nav.Link>
                         </Nav.Item>
-                        <Nav.Item>
+                        <Nav.Item onClick={props.handleShowWishlist}>
                             <Nav.Link href="#home"><BiHeart size={30}/></Nav.Link>
-                            <Nav.Link href="#link">Wishlist </Nav.Link>
+                            <Nav.Link href="#home">Wishlist </Nav.Link>
                         </Nav.Item>
                         <Nav.Item onClick={props.handleShowCheckout}>
                             <Nav.Link href="#home"><GiShoppingCart size={30}/></Nav.Link>

@@ -16,6 +16,7 @@ import Promotional from './components/layout/promotional';
 
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { set } from 'lodash';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
     const [products] = useState(items);
     const [categoryList] = useState(categories);
     const [cartItems, setCartItems] = useState([]);
+    const [wishlistItems, setWishlistItems] = useState([]);
     let pricing ={
       subtotal: 0,
       tax: 5,
@@ -50,15 +52,27 @@ function App() {
     localStorage.setItem("cart", JSON.stringify(cartItems));
   },[cartItems])
 
-  const notify = (item) => {
-      toast.success((item.name + " is Added in your Cart"), {
-      position: "bottom-right",
-      autoClose: 3000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      progress: undefined,
-      });
+  const notify = (item, text, type) => {
+    if(type==="success"){
+      toast.success((item.name + " is Added in your " + text), {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        progress: undefined,
+      })
+    }else{
+      toast.error((item.name + text),{
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        progress: undefined,
+      })
+    }
+      
   }
   //Update img url in cartItems
   const getImageUrl = (item) => {
@@ -84,7 +98,17 @@ function App() {
      
       setCartItems([...cartItems, {...product, quantity: 1, images: getImageUrl(product)}])
     }
-    notify(product)
+    notify(product, "Cart", "success")
+  }
+  const addWishlistItems = (product) => {
+    const exisitInWishlistItem = wishlistItems.find((item) => item.id === product.id && item.sizes === product.sizes && item.colors === product.colors)
+    if(exisitInWishlistItem===undefined) {
+      setWishlistItems([...wishlistItems, {...product, displayImage: getImageUrl(product)}])
+      notify(product, "Wishlist", "success")
+    }else{
+      notify(product, "is already in your wishlist", "error")
+    }
+   
   }
 
 const getSubTotal = () => {
@@ -108,8 +132,11 @@ pricing = {...pricing, total: getTotal()}
         <Banner 
           categoryList={categoryList}
           cartItems={cartItems}
+          wishlist={wishlistItems}
           pricing={pricing}
           setCartItems={setCartItems}
+          addCartItems={addCartItems}
+          setWishlistItems={setWishlistItems}
           />
           
         
@@ -123,7 +150,7 @@ pricing = {...pricing, total: getTotal()}
                         <ProductList 
                         items={getProductsByCategory([mainCategory,category])} 
                         addToCart={addCartItems}
-                      
+                        addWishlistItems={addWishlistItems}
                         />
                   </Route>))
               })

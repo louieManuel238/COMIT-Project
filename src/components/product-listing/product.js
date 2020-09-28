@@ -8,7 +8,7 @@ import {RiAddCircleLine} from 'react-icons/ri';
 import {ImCheckmark} from 'react-icons/im';
 import {ImHeart} from 'react-icons/im'
 
-export const Product = ({product,addToCart}) => {
+export const Product = ({product,addToCart,addToWishlist}) => {
     
     const [colorSelected, setColorSelected] = useState(product.colors[0])
     const [sizeSelected, setSizeSelected] = useState(product.sizes[0])
@@ -72,7 +72,7 @@ export const Product = ({product,addToCart}) => {
                             <RiAddCircleLine size={30}/>
                             <small>Add to Cart</small>
                         </Button>
-                        <Button variant="dark" >
+                        <Button variant="dark" onClick={()=> addToWishlist({...product,colors: colorSelected, sizes: sizeSelected})}>
                             <ImHeart size={30}/>
                             <small>Add to Wishlist</small>
                         </Button>

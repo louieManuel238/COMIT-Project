@@ -29,7 +29,13 @@ export default function ProductList(props) {
             </Container>
             <CardDeck style={{display: 'flex', flexDirection: 'row'}}>
                 {sortedProducts.map((item) => (
-                    <div key={item.id}> <Product product={item} key={item.id} addToCart={props.addToCart}/> </div>
+                    <div key={item.id}> 
+                        <Product 
+                            product={item} 
+                            key={item.id} 
+                            addToCart={props.addToCart}
+                            addToWishlist={props.addWishlistItems}/>
+                    </div>
                 ))}
             </CardDeck>
         </div>
