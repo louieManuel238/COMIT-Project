@@ -20,8 +20,11 @@ function OperationsNavigation(props) {
     return (
         <div>
             <NavBar  expand="lg" style={{}}>
-                <NavBar.Brand href="/"><Logo/></NavBar.Brand>
+                <LinkContainer to={"/"}>
+                    <NavBar.Brand><Logo/></NavBar.Brand>
+                </LinkContainer>
                 <NavBar.Toggle aria-controls="basic-navbar-nav" />
+                
 
                 <NavBar.Collapse id="basic-navbar-nav">
                     <Nav className="justify-content-end" style={{ width: "100%" }}>

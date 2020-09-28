@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { Switch, Route,  BrowserRouter as Router } from "react-router-dom";
 
 
+
 import './App.css';
 
 // import {items,categories} from './data';
@@ -16,7 +17,6 @@ import Promotional from './components/layout/promotional';
 
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { set } from 'lodash';
 
 
 function App() {
@@ -90,6 +90,7 @@ function App() {
       const newCart = [...cartItems]
       const updatedItem = {...exisitInCartItem, quantity: exisitInCartItem.quantity+1}
       newCart[newCart.findIndex((item) => item.id === product.id && item.sizes === product.sizes && item.colors === product.colors)] = updatedItem;
+      
       // console.log(newCart.findIndex((item) => item.id === product.id && item.sizes === product.sizes && item.colors === product.colors))
       
       setCartItems(newCart)
@@ -100,6 +101,7 @@ function App() {
     }
     notify(product, "Cart", "success")
   }
+  
   const addWishlistItems = (product) => {
     const exisitInWishlistItem = wishlistItems.find((item) => item.id === product.id && item.sizes === product.sizes && item.colors === product.colors)
     if(exisitInWishlistItem===undefined) {
@@ -165,8 +167,7 @@ pricing = {...pricing, total: getTotal()}
           <Route path={"/checkout"} >
             <ProceedCheckout cartItems={cartItems} pricing={pricing}/>
           </Route>
-          <Route path="/">
-            <Promotional/>
+          <Route path="/" component={Promotional}>
           </Route>
         </Switch>
         <Footer></Footer>
