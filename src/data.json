@@ -333,5 +333,100 @@
                 "color": "black"
             }
         ]
+    },
+    {
+        "id": 13,
+        "name": "White T-Shirt",
+        "category": [
+            "tshirt",
+            "women"
+        ],
+        "sizes": [
+            "xs",
+            "s",
+            "m",
+            "l",
+            "xl"
+        ],
+        "colors": [
+            "white"
+        ],
+        "description": "Crewneck collar white t-shirt with blue, red and yellow highlights ",
+        "price": 60,
+        "images": [
+            {
+                "url": "/images/products/tshirt/ladies-white-t-shirt.jpg",
+                "color": "white"
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "name": "Black Tote",
+        "category": [
+            "accessories"
+        ],
+        "sizes": [
+        ],
+        "colors": [
+            "black"
+        ],
+        "description": "Black synthetic lether tote bag with strap on options",
+        "price": 450,
+        "images": [
+            {
+                "url": "/images/products/accessories/black-tote-with-strap-options.jpg",
+                "color": "black"
+            }
+        ]
+    },
+    {
+        "id": 15,
+        "name": "Men's fashion green shirt",
+        "category": [
+            "tshirt",
+            "men"
+        ],
+        "sizes": [
+            "s",
+            "m",
+            "l",
+            "xl"
+        ],
+        "colors": [
+            "green"
+        ],
+        "description": "mens fashion loose cotton shirt  rolled up",
+        "price": 60,
+        "images": [
+            {
+                "url": "/images/products/tshirt/mens-loose-cotton-shirt1.jpg",
+                "color": "green"
+            },
+            {
+                "url": "/images/products/tshirt/mens-loose-cotton-shirt2.jpg",
+                "color": "green"
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "name": "Black Backpack",
+        "category": [
+            "accessories"
+        ],
+        "sizes": [
+        ],
+        "colors": [
+            "black"
+        ],
+        "description": "Cute black synthetic lether backpack",
+        "price": 430,
+        "images": [
+            {
+                "url": "/images/products/accessories/backpack-in-black.jpg",
+                "color": "black"
+            }
+        ]
     }
 ]
