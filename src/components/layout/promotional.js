@@ -2,7 +2,7 @@ import React from 'react';
 
 
 function Promotional() {
-    const image = "images/promo2.jpg"
+    const image = "/images/promo2.jpg"
     return (
         <div className="promotional-content">
             <figure  style={{width: '100%', height: '90vh', overflow: 'hidden', margin: 0, position:'relative'}}>
